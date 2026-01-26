@@ -1,0 +1,30 @@
+// Задание 11
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class ExceptionHandlingPractice {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        try {
+            System.out.println("Введите текст.");
+            int num = scanner.nextInt(); //присвоить введенное значение переменной
+            
+            int result = 100 / num;
+            System.out.println("Результат: " + result);
+            
+        } catch (InputMismatchException e) {
+            System.out.println("Ошибка: Введите корректное число!");
+            scanner.nextLine();
+            
+        } catch (ArithmeticException e) {
+            System.out.println("Ошибка: Деление на ноль невозможно!");
+            
+        } finally {
+            scanner.close();
+            System.out.println("Сканнер закрыт.");
+        }
+    }
+}

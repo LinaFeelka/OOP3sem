@@ -1,0 +1,66 @@
+//Задание 10
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class ArrayListPractice {
+
+    public static void main(String[] args) {
+        // 1. список фруктов
+        ArrayList<String> fruits = new ArrayList<>();
+        fruits.add("Яблоко");
+        fruits.add("Банан");
+        fruits.add("Апельсин");
+        fruits.add("Киви");
+        fruits.add("Манго");
+
+        // 2.вывод элементов
+        System.out.println("Cписок фруктов:");
+        for (String fruit : fruits) {
+            System.out.println("- " + fruit);
+        }
+
+        // 3. удаление 3 элемента
+        String removedFruit = fruits.remove(2);
+        //System.out.println("\nУдалён фрукт: " + removedFruit);
+        System.out.println("\nСписок после удаления:");
+        for (String fruit : fruits) {
+            System.out.println("- " + fruit);
+        }
+
+        // 4. есть ли яблоко
+        String answer;
+        boolean hasApple;
+        if (hasApple = fruits.contains("Яблоко")) {
+            answer = "Да";
+        } else {
+            answer = "Нет";
+        }
+        System.out.println("\nСодержит 'Яблоко'? " + answer);
+
+        // 5. сортировка по алфавиту
+        Collections.sort(fruits);
+        System.out.println("\nОтсортированный список:");
+        for (String fruit : fruits) {
+            System.out.println("- " + fruit);
+        }
+        
+        // дополнительное задание
+        ArrayList<String> names = new ArrayList<>();
+        names.add("Марина");
+        names.add("Алёна");
+        names.add("Вероника");
+        names.add("Алексей");
+        names.add("Анатолий");
+        names.add("Дмитрий");
+        
+        System.out.println("\nИмена, начинающиеся на А: ");
+        for (String name : names) {
+            if (name.startsWith("А")) {
+                System.out.println("- " + name);
+            }
+        }
+        
+        
+        
+    }
+}

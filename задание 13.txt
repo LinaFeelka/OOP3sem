@@ -1,0 +1,96 @@
+// задание 13
+
+import java.util.ArrayList;
+// Родительский класс
+class Animal {
+    protected String name;
+    protected int age;
+
+    public Animal(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void makeSound() {
+        System.out.println("Животное издаёт звук");
+    }
+    
+    // вывож информации о животных (проверить)
+    public void info() {
+        System.out.println("Имя: " + name + ", возраст: " + age);
+    }
+}
+
+// Дочерний класс Dog
+class Dog extends Animal {
+    private String breed;
+    
+    public Dog(String name, int age, String breed) {
+        super(name, age); // вызов конструктора родителя
+        this.breed = breed;
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println("Гав-гав!");
+    }
+    
+    @Override
+    public void info() {
+        super.info(); // Вызываем метод родителя
+        System.out.println("Порода: " + breed);
+    }
+}
+
+// Дочерний класс Cat
+class Cat extends Animal {
+    public Cat(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println("Мяу!");
+    }
+}
+
+// Дочерний класс Bird
+class Bird extends Animal {
+    public Bird(String name, int age) {
+        super(name, age);
+    }
+
+    @Override
+    public void makeSound() {
+        System.out.println("Чирик!");
+    }
+}
+
+public class InheritancePractice {
+    public static void main(String[] args) {
+        Dog dog = new Dog("Бобик", 3, "Доберман");
+        Cat cat = new Cat("Мурка", 2);
+        Bird bird = new Bird("Кеша", 1);
+
+        dog.info();
+        dog.makeSound(); // Гав-гав!
+        cat.info();
+        cat.makeSound(); // Мяу!
+        bird.info();
+        bird.makeSound(); // Чирик!
+        
+        System.out.println("\nМассив");
+        ArrayList<Animal> animals = new ArrayList<>();
+        
+        animals.add(new Bird("Макс", 2));
+        animals.add(new Dog("Ася", 8, "Такса"));
+        animals.add(new Cat("Юки", 6));
+        
+        System.out.println("Звуки животных: ");
+        for(int i = 0; i < animals.size(); i++) {
+            Animal animal = animals.get(i);
+            System.out.print("Животное " + (i + 1) + ": ");
+            animal.makeSound();
+        }
+    }
+}
